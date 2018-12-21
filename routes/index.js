@@ -13,7 +13,6 @@ let auth = jwt({
 
 router.get('/API/', function(req, res, next) {
   res.json({ message: "android verbind lokaal"});
-
 });
 
 router.post('/API/parent/:userid/children', function(req, res, next){
