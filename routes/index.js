@@ -112,6 +112,6 @@ router.put('/API/admin/child/:child_user/paid', function (req, res, next) {
         if (err) { return next(err); }
         res.json({'message': 'ok'})
     })
-}
+})
 
 module.exports = router;
