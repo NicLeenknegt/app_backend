@@ -106,9 +106,9 @@ router.get('/API/admin/parents', function (req, res, next) {
         })
 })
 
-router.put('/API/admin/child/:child_user/paid', function (req, res, next) {
+router.put('/API/admin/parent/:parent_id/paid', function (req, res, next) {
     console.log(req.body)
-    Child.findOneAndUpdate({ _id:req.params.child_user }, { $push: { paidDates: req.body } }, function (err, child) {
+    User.findOneAndUpdate({ _id:req.params.parent_id }, { $push: { paidDates: req.body } }, function (err, child) {
         if (err) { return next(err); }
         res.json({'message': 'ok'})
     })

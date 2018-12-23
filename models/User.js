@@ -24,8 +24,7 @@ let UserSchema = new mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'child'
             }
-    }]
-
+    }],paidDates: [Date]
 });
 
 UserSchema.methods.setPassword = function (password) {

@@ -24,8 +24,6 @@ let ChildSchema = new mongoose.Schema({
     }, dates: [{
         date:Date,
         time:String
-    }], paidDates: [{
-        type: Date
     }],
     birthDate: Date,
     sex:String
