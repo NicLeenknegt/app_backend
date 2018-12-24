@@ -107,11 +107,17 @@ router.get('/API/admin/parents', function (req, res, next) {
 })
 
 router.put('/API/admin/parent/:parent_id/paid', function (req, res, next) {
-    console.log(req.body)
     User.findOneAndUpdate({ _id:req.params.parent_id }, { $push: { paidDates: req.body.date } }, function (err, child) {
         if (err) { return next(err); }
         res.json({'message': 'ok'})
     })
-})
+});
+
+router.put('/API/admin/parent/:parent_id/unpaid', function (req, res, next) {
+    User.findOneAndUpdate({ _id:req.params.parent_id }, { $pull: { paidDates: req.body.date } }, function (err, child) {
+        if (err) { return next(err); }
+        res.json({'message': 'ok'})
+    })
+});
 
 module.exports = router;
