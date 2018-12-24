@@ -95,7 +95,7 @@ router.param('child', function (req, res, next, id) {
 
 router.get('/API/admin/parents', function (req, res, next) {
     User
-        .find({rights: 1}, {firstname: 1, lastname: 1, children: 1})
+        .find({rights: 1}, {firstname: 1, lastname: 1, children: 1, paidDates: 1})
         .populate('children.child')
         .exec(function (err, users) {
             if (err) {
