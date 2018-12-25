@@ -43,7 +43,6 @@ router.put('/API/parent/children', function (req, res, next) {
 })
 
 router.get('/API/parent/:user', function (req, res, next) {
-    console.log(JSON.stringify(req.userParam.children[2].child));
     res.json(req.userParam.children)
 })
 
@@ -66,13 +65,9 @@ router.put('/API/parent/dates/:child', function (req, res, next) {
 })
 
 router.param('user', function (req, res, next, id) {
-    console.log("1");
     let query = User.findById(id).populate('children.child');
-    console.log("2");
     query.exec(function (err, userParam) {
         if (err) {
-            console.log("CHILD_ERROR");
-            console.log(err);
             return next(err);
         }
         if (!userParam) {
