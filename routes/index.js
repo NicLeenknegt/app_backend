@@ -120,4 +120,11 @@ router.put('/API/admin/parent/:parent_id/unpaid', function (req, res, next) {
     })
 });
 
+router.put('/API/admin/child/:child_id/adddate', function (req, res, next) {
+    Child.findOneAndUpdate( {_id: req.params.child_id}, { $push: {dates: req.body.date} }, function (err, child)  {
+        if (err) { return next(err); }
+        res.json({'message': 'ok'})
+    });
+});
+
 module.exports = router;
