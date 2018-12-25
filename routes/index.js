@@ -66,7 +66,9 @@ router.put('/API/parent/dates/:child', function (req, res, next) {
 })
 
 router.param('user', function (req, res, next, id) {
+    console.log("1");
     let query = User.findById(id).populate('children.child');
+    console.log("2");
     query.exec(function (err, userParam) {
         if (err) {
             return next(err);
