@@ -71,6 +71,8 @@ router.param('user', function (req, res, next, id) {
     console.log("2");
     query.exec(function (err, userParam) {
         if (err) {
+            console.log("CHILD_ERROR");
+            console.log(err);
             return next(err);
         }
         if (!userParam) {
