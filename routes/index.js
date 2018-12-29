@@ -44,7 +44,8 @@ router.put('/API/parent/children', function (req, res, next) {
 
 router.get('/API/parent/:user', function (req, res, next) {
     for (let childrenKey in req.userParam.children) {
-        let child = req.userParam.children[childrenKey]
+        let child = req.userParam.children[childrenKey].child
+        child.birthDateString = child.birthDate.toISOString()
         console.log(child)
     }
     res.json(req.userParam.children)
