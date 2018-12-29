@@ -26,6 +26,7 @@ let ChildSchema = new mongoose.Schema({
         time:String
     }],
     birthDate: Date,
+    birthDateString:birthDate.toISOString(),
     sex:String
 })
 
