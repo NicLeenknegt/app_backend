@@ -60,7 +60,7 @@ router.put('/API/parent/dates/:child', function (req, res, next) {
     if (body.hasOwnProperty("ios")) {
         body = body.ios
     }
-    req.child.update({$set: {dates: body}, function (err, child) {
+    req.child.update({$set: {dates: body}}, function (err, child) {
         if (err) {
             return next(err);
         }
