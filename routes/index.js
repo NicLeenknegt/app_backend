@@ -56,6 +56,7 @@ router.delete('/API/parent/:child', function (req, res, next) {
 });
 
 router.put('/API/parent/dates/:child', function (req, res, next) {
+    console.log(req.body)
     req.child.update({$set: {dates: req.body}}, function (err, child) {
         if (err) {
             return next(err);
