@@ -65,8 +65,10 @@ router.put('/API/parent/dates/:child', function (req, res, next) {
 })
 
 router.put('/API/parent/dates/:child/ios', function (req, res, next) {
+    console.log(req.body.ios)
     req.child.update({$set: {dates: req.body.ios}}, function (err, child) {
         if (err) {
+            console.log(err)
             return next(err);
         }
         res.json({'message': 'ok'})
