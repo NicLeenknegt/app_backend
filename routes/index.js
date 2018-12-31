@@ -56,11 +56,16 @@ router.delete('/API/parent/:child', function (req, res, next) {
 });
 
 router.put('/API/parent/dates/:child', function (req, res, next) {
-    var body = req.body
-    if (body.hasOwnProperty("ios")) {
-        body = body.ios
-    }
-    req.child.update({$set: {dates: body}}, function (err, child) {
+    req.child.update({$set: {dates: req.body}}, function (err, child) {
+        if (err) {
+            return next(err);
+        }
+        res.json({'message': 'ok'})
+    })
+})
+
+router.put('/API/parent/dates/:child/ios', function (req, res, next) {
+    req.child.update({$set: {dates: req.body.ios}}, function (err, child) {
         if (err) {
             return next(err);
         }
