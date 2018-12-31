@@ -56,7 +56,7 @@ router.delete('/API/parent/:child', function (req, res, next) {
 });
 
 router.put('/API/parent/dates/:child', function (req, res, next) {
-    let body = req.body
+    var body = req.body
     if (body.hasOwnProperty("ios")) {
         body = body.ios
     }
