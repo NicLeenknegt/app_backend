@@ -112,7 +112,7 @@ router.get('/API/admin/parents', function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            console.log(JSON.stringify(users[0].children[0].child))
+            console.log(JSON.stringify(users[0].paidDates))
             res.json(users)
         })
 })
