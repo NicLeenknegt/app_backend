@@ -21,6 +21,7 @@ router.post('/API/parent/:userid/children', function (req, res, next) {
     child.save(function (err, child) {
         if (err) {
             console.log("POST");
+            console.log(err);
             return next(err);
         }
         let userQuerry = User.updateOne({_id: req.params.userid}, {'$push': {children: {'child': child}}})
